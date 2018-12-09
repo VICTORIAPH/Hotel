@@ -1,0 +1,5 @@
+e   01  2   no   no   si    no    si
+t   30  1   si    si    si    no   si
+ej  40  1   si    si    si    si    si
+s   45  1   si    si    si    si    si
+sp  50  1   si    si    si    si    si  si
