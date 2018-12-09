@@ -81,6 +81,7 @@ import java.util.Scanner;
             }
         }
 
+
         private static void menuUsuario() {
             try {
                 //Menu de usuario logeado en el sistema
@@ -88,10 +89,16 @@ import java.util.Scanner;
 
                     System.out.println("Que desea hacer?");
                     System.out.print("[1] Reservar \t [2] Cancelar \t [3] Cerrar Sesion \t \n>");
+
                     int opcion = teclado.nextInt();
 
                     switch (opcion) {
                         case 1:
+                            private double pagar (){
+                            int tarjeta;
+                            pagar=tarjeta;
+
+                        }
                             System.out.printf("\t\t\tUsted ha reservado\n");
                             break;
                         case 2:

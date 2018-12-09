@@ -8,12 +8,14 @@ public class Usuario {
     private String correo;
     private String pass;
     private String nombre;
+    private int tarjeta;
     private Habitacion reservaciones;
 
     public Usuario(Scanner leer) {
         this.nombre = leer.next();
         this.correo = leer.next();
         this.pass = leer.next();
+        this.tarjeta=leer.next();
     }
     public void reservar(){
 
@@ -21,6 +23,7 @@ public class Usuario {
     public void cancelar(){
 
     }
+
 
     public String getCorreo() {
         return correo;
