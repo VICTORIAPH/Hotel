@@ -1,6 +1,6 @@
 package AppHotel;
 
-import Habitaciones.*; //Hola
+import Habitaciones.*; //Hola :v
 import Usuarios.Usuario;
 
 import java.io.File;
