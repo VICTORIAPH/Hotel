@@ -10,43 +10,45 @@ import java.util.Scanner;
 
     public class Main {
 
-    private static ArrayList<Habitacion> habs =  new ArrayList<>();    //Base de datos de habitaciones del hotel
-    private static ArrayList <Usuario> baseCorreos= new ArrayList<>(); //Base de datos de correos y contraseñas
-    private static Scanner teclado = new Scanner(System.in);
-    private static Scanner leer;
+        private static ArrayList<Habitacion> habs = new ArrayList<>();    //Base de datos de habitaciones del hotel
+        private static ArrayList<Usuario> baseCorreos = new ArrayList<>(); //Base de datos de correos y contraseñas
+        private static ArrayList<Habitacion> ocupadas = new ArrayList<>(); //Base de datos de correos y contraseñas
+        private static Scanner teclado = new Scanner(System.in);
+        private static Scanner leer;
+        private static int posicion;
 
-    public static void main(String[] args) throws FileNotFoundException {
+        public static void main(String[] args) throws FileNotFoundException {
             menuPrincipal();
         }
 
         private static void menuPrincipal() throws FileNotFoundException {
             try {
-                for (;;) {
-                    System.out.printf("[1] Tipo de habitaciones");
-                    System.out.printf("\t[2] Ingresa   ");
-                    System.out.printf("\t[9] Salir\n> ");
+            for (; ; ) {
+                System.out.printf("[1] Tipo de habitaciones");
+                System.out.printf("\t[2] Ingresa   ");
+                System.out.printf("\t[9] Salir\n> ");
 
-                    int opcion = teclado.nextInt();
-                    switch (opcion) {
-                        case 1:
-                            llenadoDeBase();
-                            tiposDeHabitaciones();
-                            break;
-                        case 2:
-                            login();
-                            break;
-                        case 9:
-                            System.out.printf("\n\n\t\t\tHasta Pronto! ;)\n\n");
-                            break;
-                        default:
-                            System.out.println("Opcion no valida");
-                    }
-                    if (opcion == 9)break;
+                int opcion = teclado.nextInt();
+                switch (opcion) {
+                    case 1:
+                        llenadoDeBase();
+                        tiposDeHabitaciones();
+                        break;
+                    case 2:
+                        llenadoDeBase();
+                        login();
+                        break;
+                    case 9:
+                        System.out.printf("\n\n\t\t\tHasta Pronto! ;)\n\n");
+                        break;
+                    default:
+                        System.err.println("Opcion no valida");
                 }
-            }catch (Exception ingresoOtraCosa){
-                System.out.println("\t\t\tIngresa un numero Plz");
+                if (opcion == 9) break;
             }
-        }
+        }catch(
+        Exception ingresoOtraCosa) {System.out.println("\t\t\tIngresa un numero Plz");}
+    }
 
         private static void login() throws FileNotFoundException {
 
@@ -76,14 +78,14 @@ import java.util.Scanner;
                 {
                     System.out.println("Bienvenido " + baseCorreos.get(i).getNombre());
                         menuUsuario();
+                        posicion = i;
                 }
 
             }
         }
 
-
         private static void menuUsuario() {
-            try {
+           try {
                 //Menu de usuario logeado en el sistema
                 for (; ; ) {
 
@@ -94,12 +96,8 @@ import java.util.Scanner;
 
                     switch (opcion) {
                         case 1:
-                            private double pagar (){
-                            int tarjeta;
-                            pagar=tarjeta;
-
-                        }
-                            System.out.printf("\t\t\tUsted ha reservado\n");
+                            seleccionDeHabitacion();
+                            pagar();
                             break;
                         case 2:
                             System.out.printf("\t\t\tUsted ha cancelado\n");
@@ -116,9 +114,48 @@ import java.util.Scanner;
 
                 }
             }catch (Exception ingresoOtraCosa){
-                System.out.println("Ingrese valor numerico");
+                System.err.println("Ingrese valor numerico");
                 menuUsuario();
+           }
         }
+
+        private static int seleccionDeHabitacion() {
+        int i;
+            System.out.println("Escoja tipo de habitacion");
+            System.out.println("[0] Economica [1]Tradiconal [2] " +
+                    "Ejecutiva [3] Suite [4] Suite Precidencial");
+                i = teclado.nextInt();
+            do {
+                if (i == 0) System.out.println("Ha seleccionado: Economica");
+                if (i == 1) System.out.println("Ha seleccionado: Tradicional");
+                if (i == 2) System.out.println("Ha seleccionado: Ejecutiva");
+                if (i == 3) System.out.println("Ha seleccionado: Suite");
+                if (i == 4) System.out.println("Ha seleccionado: Suite presidencial");
+
+            }while (i > 5);
+
+            System.out.println("Pase a pagar: " + habs.get(i).getPrecio());
+
+            return i;
+        }
+
+        private static void pagar() {
+            System.out.println("ingrese su metodo de pago");
+            System.out.println("[1] Tarjeta de Credito\t[2] Efectivo\t[3] Atrás ");
+                int opcion = teclado.nextInt();
+                switch (opcion){
+                    case 1:
+                        System.out.println("Ingrese su numero de tarjeta");
+                            int tajeta = teclado.nextInt();
+                        System.out.println("Ha pagado con: " + tajeta);
+                        System.out.printf("\t\t\tUsted ha reservado \n");
+                        break;
+                    case 2:
+                        System.out.printf("\t\t\tUsted ha reservado\n");
+                        System.out.println("Pague en hotel");
+
+                }
+
         }
 
         private static void tiposDeHabitaciones() {

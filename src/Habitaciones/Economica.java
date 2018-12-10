@@ -18,6 +18,10 @@ public class Economica extends Habitacion implements Operaciones2 {
         this.wc=leer.next();
     }
 
+    public Economica() {
+
+    }
+
     @Override
     public String toString() {
         return "Economica \t" +
@@ -30,6 +34,6 @@ public class Economica extends Habitacion implements Operaciones2 {
 
     @Override
     public double calcularPrecio() {
-        return getPrecio()+50;
+        return getPrecio() + 50;
     }
 }

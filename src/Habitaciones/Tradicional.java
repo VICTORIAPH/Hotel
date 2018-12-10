@@ -17,6 +17,11 @@ public class Tradicional extends Habitacion implements Operaciones2{
         this.serHab=leer.next();
         this.wc=leer.next();
     }
+
+    public Tradicional() {
+
+    }
+
     public String toString() {
         return "Tradicional \t " +
                 " cable " + cable +

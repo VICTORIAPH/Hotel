@@ -18,6 +18,10 @@ public class Suite extends Habitacion implements Operaciones2{
         this.wc=leer.next();
     }
 
+    public Suite() {
+
+    }
+
     public String toString() {
         return "Suite \t" +
                 " cable " + cable +

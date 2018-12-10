@@ -17,6 +17,11 @@ public class Ejecutiva extends Habitacion implements Operaciones2 {
         this.serHab=leer.next();
         this.wc=leer.next();
     }
+
+    public Ejecutiva() {
+
+    }
+
     public String toString() {
         return "Ejecutiva \t" +
                 " cable " + cable +

@@ -9,6 +9,10 @@ private String jacuzy;
         this.jacuzy = leer.next();
 
     }
+    public SuitePrecidencial(){
+        super();
+
+    }
     public String toString() {
         return "Suite Precidencial \t" +
                 " cable " + cable +
